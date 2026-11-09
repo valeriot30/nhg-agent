@@ -1,0 +1,73 @@
+/**
+ * The headers of the game protocol (JSON {header, body} over the websocket), as the client's OutgoingPacket and
+ * PacketManager and the server's IncomingPackets / OutgoingPacketHeaders.
+ */
+export const Out = {
+    Login: 1,
+    Ping: 4,
+    AllRooms: 6,
+    MyRooms: 7,
+    EnterRoom: 8,
+    ExitRoom: 9,
+    Move: 10,
+    Say: 11,
+    Typing: 12,
+    LookAt: 13,
+    InventoryItems: 14,
+    PickupItem: 23,
+    RotateItem: 24,
+    PlaceItem: 25,
+    MoveItem: 26,
+    UseItem: 27,
+    ApplyDecoration: 29,
+    CreateRoom: 36,
+    UserInfo: 15,
+    FriendRequest: 16,
+    AcceptFriend: 17,
+    DeclineFriend: 18,
+    FriendsList: 19,
+    FollowFriend: 37,
+    PrivateMessage: 39,
+    ChangeLook: 48,
+    Action: 50,
+    RemoveFriend: 51,
+    DiceActivate: 52,
+    DiceOff: 53,
+    CataloguePages: 800,
+    CataloguePage: 801,
+    BuyItem: 802,
+} as const;
+
+export const In = {
+    LoginResult: 1,
+    Pong: 2,
+    Disconnect: 3,
+    HotelView: 4,
+    BubbleAlert: 5,
+    AllRooms: 101,
+    MyRooms: 102,
+    RoomData: 200,
+    RoomEntities: 202,
+    UpdateEntity: 203,
+    AddEntity: 204,
+    RemoveEntity: 205,
+    Chat: 206,
+    Typing: 207,
+    GoToRoom: 208,
+    RoomPaint: 209,
+    ObjectsRolling: 210,
+    UserInfo: 400,
+    InventoryItems: 401,
+    CataloguePages: 800,
+    CatalogueItems: 801,
+    BuyItem: 802,
+    NotEnoughCredits: 803,
+    FriendsList: 900,
+    FriendRequestReceived: 901,
+    FriendRequestResult: 902,
+    FriendMessage: 903,
+} as const;
+
+/** The avatar actions of the server's UserAction packet. */
+export const AVATAR_ACTIONS = ['Dance', 'Wave', 'Respect', 'Blow', 'Laugh', 'Sleep', 'Sign', 'Sit', 'Default'] as const;
+export type AvatarAction = (typeof AVATAR_ACTIONS)[number];
